@@ -17,6 +17,9 @@
 		923AEBE41F60F8A80020A103 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 923AEBE21F60F8A80020A103 /* ViewController.xib */; };
 		923AEBFC1F61224E0020A103 /* Mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEBFB1F61224E0020A103 /* Mask.png */; };
 		923AEBFE1F61228A0020A103 /* Mask1.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEBFD1F61228A0020A103 /* Mask1.png */; };
+		923AEC181F624A140020A103 /* Mask2.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEC171F624A140020A103 /* Mask2.png */; };
+		923AEC1A1F624ACB0020A103 /* Mask3.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEC191F624ACB0020A103 /* Mask3.png */; };
+		923AEC1C1F624CDD0020A103 /* Mask4.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEC1B1F624CDD0020A103 /* Mask4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		923AEBE21F60F8A80020A103 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
 		923AEBFB1F61224E0020A103 /* Mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask.png; sourceTree = "<group>"; };
 		923AEBFD1F61228A0020A103 /* Mask1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask1.png; sourceTree = "<group>"; };
+		923AEC171F624A140020A103 /* Mask2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask2.png; sourceTree = "<group>"; };
+		923AEC191F624ACB0020A103 /* Mask3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask3.png; sourceTree = "<group>"; };
+		923AEC1B1F624CDD0020A103 /* Mask4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +111,9 @@
 		923AEBAC1F60F8600020A103 /* CutImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				923AEC1B1F624CDD0020A103 /* Mask4.png */,
+				923AEC191F624ACB0020A103 /* Mask3.png */,
+				923AEC171F624A140020A103 /* Mask2.png */,
 				923AEBFD1F61228A0020A103 /* Mask1.png */,
 				923AEBFB1F61224E0020A103 /* Mask.png */,
 				923AEBB01F60F8600020A103 /* AppDelegate.h */,
@@ -255,9 +264,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				923AEC1C1F624CDD0020A103 /* Mask4.png in Resources */,
 				923AEBBD1F60F8600020A103 /* LaunchScreen.storyboard in Resources */,
+				923AEC1A1F624ACB0020A103 /* Mask3.png in Resources */,
 				923AEBFE1F61228A0020A103 /* Mask1.png in Resources */,
 				923AEBFC1F61224E0020A103 /* Mask.png in Resources */,
+				923AEC181F624A140020A103 /* Mask2.png in Resources */,
 				923AEBE41F60F8A80020A103 /* ViewController.xib in Resources */,
 				923AEBBA1F60F8600020A103 /* Assets.xcassets in Resources */,
 			);
@@ -429,6 +441,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H88TFSPPG8;
 				INFOPLIST_FILE = CutImageDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leevi.wlw.CutImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -441,6 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = H88TFSPPG8;
 				INFOPLIST_FILE = CutImageDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.leevi.wlw.CutImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,6 +530,7 @@
 				923AEBD91F60F8610020A103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		923AEBDA1F60F8610020A103 /* Build configuration list for PBXNativeTarget "CutImageDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +539,7 @@
 				923AEBDC1F60F8610020A103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		923AEBDD1F60F8610020A103 /* Build configuration list for PBXNativeTarget "CutImageDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +548,7 @@
 				923AEBDF1F60F8610020A103 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

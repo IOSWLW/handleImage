@@ -46,17 +46,20 @@
     [self presentViewController:sheet animated:YES completion:nil];
 }
 
+// 判断是否有摄像头
 - (BOOL)isCameraAvailable {
     return [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 }
 
-//- (BOOL) isFrontCameraAvailable{
-//    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
-//}
-//
-//- (BOOL) isRearCameraAvailable{
-//    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
-//}
+// 判断是否有前置摄像头
+- (BOOL) isFrontCameraAvailable{
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront];
+}
+
+// 判断是否有后置摄像头
+- (BOOL) isRearCameraAvailable{
+    return [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+}
 
 - (void)showImagePickVCWithType:(NSInteger )type {
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
@@ -73,6 +76,7 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    image = [self maskImageWithImage:image];
     _imageView.image = [self imageCompressFitSizeScale:image targetSize:CGSizeMake(300, 300)];
     for (int i = 0; i < _imageViewArray.count; i ++) {
         int x = i % 3;
@@ -169,7 +173,7 @@
    */
     
     
-    UIImage *maskImage = [UIImage imageNamed:@"Mask"];
+    UIImage *maskImage = [UIImage imageNamed:@"Mask2"];
     CGImageRef cgImage = [image CGImage];
     CGImageRef  mask = maskImage.CGImage;
     CGImageRef maskCgImage = CGImageMaskCreate(CGImageGetWidth(mask),
@@ -323,6 +327,27 @@
     return newImage;
 }
 
+- (void)saveImageToPhotoAlbum:(UIImage *)image {
+    UIImageWriteToSavedPhotosAlbum(image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error) {
+        NSLog(@"保存失败");
+    }
+    
+    NSLog(@"保存成功");
+}
+
+- (IBAction)saveButtonClick:(id)sender {
+    int i = 0;
+    for (UIImageView *view in self.imageViewArray) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(i * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self saveImageToPhotoAlbum:view.image];
+        });
+        i ++;
+    }
+}
 
 
 
