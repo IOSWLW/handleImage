@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="coverImageView" destination="aJz-P2-eUG" id="GO2-Xj-sQY"/>
                 <outlet property="imageView" destination="lSN-hN-tAp" id="zLM-g7-G8K"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="imageViewArray" destination="gv6-Mh-w3S" id="fKz-L4-DJN"/>
@@ -96,6 +97,10 @@
                         <action selector="openPhotoAlbum:" destination="-1" eventType="touchUpInside" id="tK5-Sc-ppb"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-P2-eUG">
+                    <rect key="frame" x="16" y="317" width="318" height="300"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.4431372549" green="0.46666666670000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

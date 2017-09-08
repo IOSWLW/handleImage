@@ -20,6 +20,7 @@
 		923AEC181F624A140020A103 /* Mask2.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEC171F624A140020A103 /* Mask2.png */; };
 		923AEC1A1F624ACB0020A103 /* Mask3.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEC191F624ACB0020A103 /* Mask3.png */; };
 		923AEC1C1F624CDD0020A103 /* Mask4.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEC1B1F624CDD0020A103 /* Mask4.png */; };
+		923AEC1E1F628D820020A103 /* Mask5.png in Resources */ = {isa = PBXBuildFile; fileRef = 923AEC1D1F628D820020A103 /* Mask5.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		923AEC171F624A140020A103 /* Mask2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask2.png; sourceTree = "<group>"; };
 		923AEC191F624ACB0020A103 /* Mask3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask3.png; sourceTree = "<group>"; };
 		923AEC1B1F624CDD0020A103 /* Mask4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask4.png; sourceTree = "<group>"; };
+		923AEC1D1F628D820020A103 /* Mask5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mask5.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		923AEBAC1F60F8600020A103 /* CutImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				923AEC1D1F628D820020A103 /* Mask5.png */,
 				923AEC1B1F624CDD0020A103 /* Mask4.png */,
 				923AEC191F624ACB0020A103 /* Mask3.png */,
 				923AEC171F624A140020A103 /* Mask2.png */,
@@ -266,6 +269,7 @@
 			files = (
 				923AEC1C1F624CDD0020A103 /* Mask4.png in Resources */,
 				923AEBBD1F60F8600020A103 /* LaunchScreen.storyboard in Resources */,
+				923AEC1E1F628D820020A103 /* Mask5.png in Resources */,
 				923AEC1A1F624ACB0020A103 /* Mask3.png in Resources */,
 				923AEBFE1F61228A0020A103 /* Mask1.png in Resources */,
 				923AEBFC1F61224E0020A103 /* Mask.png in Resources */,

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imageViewArray;
+@property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 
 @end
 
@@ -30,7 +31,7 @@
 - (IBAction)openPhotoAlbum:(id)sender {
     UIAlertController *sheet = [UIAlertController alertControllerWithTitle:@"选择相册" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [sheet addAction:[UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSUInteger type = UIImagePickerControllerSourceTypePhotoLibrary;
+        NSUInteger type = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
         [self showImagePickVCWithType:type];
         
     }]];
@@ -76,13 +77,14 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     [picker dismissViewControllerAnimated:YES completion:nil];
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    image = [self maskImageWithImage:image];
-    _imageView.image = [self imageCompressFitSizeScale:image targetSize:CGSizeMake(300, 300)];
+    UIImage * fitImage= [self imageCompressFitSizeScale:image targetSize:CGSizeMake(300, 300)];
+    UIImage * maskImage = [self maskImageWithImage:fitImage];
+    _imageView.image = maskImage;
     for (int i = 0; i < _imageViewArray.count; i ++) {
         int x = i % 3;
         int y = i / 3;
         UIImageView *imageview = _imageViewArray[i];
-        imageview.image = [self cutImageWithImage:_imageView.image x:x y:y];
+        imageview.image = [self cutImageWithImage:maskImage x:x y:y];
     }
 }
 
@@ -173,11 +175,12 @@
    */
     
     
-    UIImage *maskImage = [UIImage imageNamed:@"Mask2"];
+    UIImage *maskImage = [UIImage imageNamed:@"Mask5"];
+//    self.coverImageView.image = maskImage;
     CGImageRef cgImage = [image CGImage];
     CGImageRef  mask = maskImage.CGImage;
-    CGImageRef maskCgImage = CGImageMaskCreate(CGImageGetWidth(mask),
-                                               CGImageGetHeight(mask),
+    CGImageRef maskCgImage = CGImageMaskCreate(300,
+                                               300,
                                                CGImageGetBitsPerComponent(mask),
                                                CGImageGetBitsPerPixel(mask),
                                                CGImageGetBytesPerRow(mask),
@@ -221,13 +224,20 @@
     CGSize imageSize = sourceImage.size;
     CGFloat width = imageSize.width;
     CGFloat height = imageSize.height;
+    
     CGFloat targetWidth = defineWidth;
+    
     CGFloat targetHeight = height / (width / targetWidth);
+    if (width > height) {
+        targetHeight = defineWidth;
+        targetWidth = width / (height / targetHeight);
+    }
     CGSize size = CGSizeMake(targetWidth, targetHeight);
     CGFloat scaleFactor = 0.0;
     CGFloat scaledWidth = targetWidth;
     CGFloat scaledHeight = targetHeight;
     CGPoint thumbnailPoint = CGPointMake(0.0, 0.0);
+    
     
     if(CGSizeEqualToSize(imageSize, size) == NO){
         
